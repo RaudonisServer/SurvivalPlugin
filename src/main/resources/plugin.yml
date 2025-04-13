@@ -3,3 +3,7 @@ version: '1.0-SNAPSHOT'
 main: xyz.anonym.raudonisSurvival.RaudonisSurvival
 api-version: '1.21'
 authors: [ TheAnonym3000 ]
+commands:
+  tpa:
+    description: Teleports you after 1.5 seconds to someone.
+    aliases: ["tpto", "telportto"]
