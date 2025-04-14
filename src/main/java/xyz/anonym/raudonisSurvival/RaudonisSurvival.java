@@ -4,6 +4,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import xyz.anonym.raudonisSurvival.command.TPACommand;
+import xyz.anonym.raudonisSurvival.death.PlayerHeadDrop;
 
 import java.util.Objects;
 
@@ -37,5 +38,6 @@ public final class RaudonisSurvival extends JavaPlugin {
     private void register() {
         PluginManager pluginManager = Bukkit.getPluginManager();
         Objects.requireNonNull(Bukkit.getPluginCommand("tpa")).setExecutor(new TPACommand());
+        pluginManager.registerEvents(new PlayerHeadDrop(), this);
     }
 }
