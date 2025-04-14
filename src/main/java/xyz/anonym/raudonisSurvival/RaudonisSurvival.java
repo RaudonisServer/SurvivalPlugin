@@ -15,6 +15,11 @@ public final class RaudonisSurvival extends JavaPlugin {
         Bukkit.getConsoleSender().sendMessage(text);
     }
 
+    public static void chat(String text) {
+        //Write into the chat
+        Bukkit.broadcastMessage(text);
+    }
+
     public static void sleep(int sleeptime) {
         try {
             Thread.sleep(sleeptime);

@@ -1,5 +1,6 @@
 package xyz.anonym.raudonisSurvival.death;
 
+import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.EntityType;
@@ -8,7 +9,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
-import xyz.anonym.raudonisSurvival.RaudonisSurvival;
 
 public class PlayerHeadDrop implements Listener {
     @EventHandler
@@ -19,7 +19,11 @@ public class PlayerHeadDrop implements Listener {
             skullMeta.setOwningPlayer(Bukkit.getOfflinePlayer(e.getPlayer().getName())); // Set the skull's owner so it will adapt the skin of the provided username (case sensitive).
             skull.setItemMeta(skullMeta);
             e.getPlayer().getWorld().dropItem(e.getPlayer().getLocation(), skull);
-            e.getPlayer().sendMessage("[§6§lRaudonisSurvival§r] You died. Dropped Player Head.");
+            try {
+                Bukkit.broadcast(Component.text("[§6§lRaudonisSurvival§r] ").append(e.deathMessage()));
+            } catch (Exception ex) {
+                throw new RuntimeException(ex);
+            }
         }
     }
 }
