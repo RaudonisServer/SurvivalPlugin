@@ -26,7 +26,7 @@ public class TPACommand implements CommandExecutor {
             teleportPlayer.teleport(argumentPlayer);
             return true;
         } catch (Exception e) {
-            teleportPlayer.sendMessage("[§6§lRaudonisSurvival§r] §4The Player is not online!");
+            teleportPlayer.sendMessage("[§6§lRaudonisSurvival§r] §cThe Player is not online!");
             return false;
         }
     }
